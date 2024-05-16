@@ -1,0 +1,12 @@
+<p>deletepolicy works!</p>
+
+<div>
+    <h2>Delete Policy</h2>
+    <div>
+      <label for="policyId">Policy ID:</label>
+      <input type="text" id="policyId" [(ngModel)]="policyId">
+    </div>
+    <!-- <div *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</div> -->
+    <button (click)="deletePolicy()">Delete</button>
+  </div>
+  
