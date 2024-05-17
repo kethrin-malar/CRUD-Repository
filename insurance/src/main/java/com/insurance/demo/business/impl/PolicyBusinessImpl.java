@@ -1,5 +1,7 @@
 package com.insurance.demo.business.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,13 @@ public class PolicyBusinessImpl implements PolicyBusiness {
         String msg = policyService.createPolicy(policy);
         return msg;
     }
+    
+    
+    @Override
+    public List<PolicyEntity> getAllPolicies() {
+        return policyService.getAllPolicies();
+    }
+    
     @Override
     public String updatePolicy(int id, PolicyEntity policy) {
         return policyService.updatePolicy(id, policy);

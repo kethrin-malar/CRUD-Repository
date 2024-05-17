@@ -1,5 +1,7 @@
 package com.insurance.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,7 +32,14 @@ public class PolicyController {
         String msg = policyBusiness.updatePolicy(id, policy);
         return ResponseEntity.ok(msg);
     }
-   
+    
+    @GetMapping("/all")
+    public ResponseEntity<List<PolicyEntity>> getAllPolicies() {
+        List<PolicyEntity> policies = policyBusiness.getAllPolicies();
+        return ResponseEntity.ok(policies);
+    }
+    
+    
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deletePolicy(@PathVariable int id) {
         String msg = policyBusiness.deletePolicy(id);

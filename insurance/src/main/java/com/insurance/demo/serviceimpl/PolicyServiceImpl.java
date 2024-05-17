@@ -1,5 +1,7 @@
 package com.insurance.demo.serviceimpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,10 @@ public class PolicyServiceImpl implements PolicyService {
     public String createPolicy(PolicyEntity policy) {
     	policyRepository.save(policy);
     	return "Policy created successfully";
+    }
+    @Override
+    public List<PolicyEntity> getAllPolicies() {
+        return policyRepository.findAll();
     }
        
     @Override
