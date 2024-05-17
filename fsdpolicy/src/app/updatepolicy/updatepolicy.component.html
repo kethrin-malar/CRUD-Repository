@@ -1,0 +1,48 @@
+<p>updatepolicy works!</p>
+<!-- update-policy.component.html -->
+<div>
+    <h2>Policies</h2>
+    <ul>
+      <li *ngFor="let policy of policies" (click)="onSelect(policy)">
+        {{ policy.policy_Number }}
+      </li>
+    </ul>
+  
+    <div *ngIf="selectedPolicy">
+      <h2>Update Policy</h2>
+      <form (ngSubmit)="onUpdate()">
+        <label>
+          Policy Number:
+          <input [(ngModel)]="selectedPolicy.policy_Number" name="policyNumber" required>
+        </label>
+        <br>
+        <label>
+          Effective Date:
+          <input [(ngModel)]="selectedPolicy.policy_Effective_Date" name="policyEffectiveDate" required type="datetime-local">
+        </label>
+        <br>
+        <label>
+          Expire Date:
+          <input [(ngModel)]="selectedPolicy.policy_Expire_Date" name="policyExpireDate" required type="datetime-local">
+        </label>
+        <br>
+        <label>
+          Payment Option:
+          <input [(ngModel)]="selectedPolicy.payment_Option" name="paymentOption" required>
+        </label>
+        <br>
+        <label>
+          Total Amount:
+          <input [(ngModel)]="selectedPolicy.total_Amount" name="totalAmount" required type="number">
+        </label>
+        <br>
+        <label>
+          Created Date:
+          <input [(ngModel)]="selectedPolicy.created_Date" name="createdDate" required type="datetime-local">
+        </label>
+        <br>
+        <button type="submit">Update Policy</button>
+      </form>
+    </div>
+  </div>
+  

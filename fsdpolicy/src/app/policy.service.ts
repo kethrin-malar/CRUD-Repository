@@ -7,6 +7,7 @@ import { Policy } from './policy';
   providedIn: 'root'
 })
 export class PolicyService {
+  baseUrl: any;
   delete(policyId: string) {
     throw new Error('Method not implemented.');
   }
@@ -17,6 +18,7 @@ export class PolicyService {
  
 
   constructor(private http: HttpClient) {
+    this.baseUrl = 'http://localhost:8080/policy';
     this.policyUrl = 'http://localhost:8080/policy/create';
     this.deleteUrl = 'http://localhost:8080/policy/delete/{id}';
    
@@ -24,6 +26,13 @@ export class PolicyService {
 
   public save(policy: Policy): Observable<Object> {
     return this.http.post(`${this.policyUrl}`, policy, { responseType: 'text' });
+  }
+  getAllPolicies(): Observable<Policy[]> {
+    return this.http.get<Policy[]>(`${this.baseUrl}/all`);
+  }
+
+  updatePolicy(id: number, policy: Policy): Observable<string> {
+    return this.http.put<string>(`${this.baseUrl}/update/${id}`, policy);
   }
   public deletePolicy(policyId: string): Observable<any> {
     const deleteUrl = this.deleteUrl.replace('{id}', policyId);

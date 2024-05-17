@@ -8,6 +8,7 @@ import { FormsModule }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DeletepolicyComponent } from './deletepolicy/deletepolicy.component';
+import { UpdatePolicyComponent } from './updatepolicy/updatepolicy.component';
 
 
 
@@ -17,7 +18,8 @@ import { DeletepolicyComponent } from './deletepolicy/deletepolicy.component';
     CreatePolicyComponent,
     DashboardComponent,
     CreatePolicyComponent,
-    DeletepolicyComponent
+    DeletepolicyComponent,
+    UpdatePolicyComponent
    
   ],
   imports: [
